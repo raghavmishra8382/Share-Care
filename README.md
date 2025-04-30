@@ -23,7 +23,7 @@ Share and Care is an online platform designed to facilitate the sharing and dona
 1. Clone the repository:
     
 sh
-    git clone https://github.com/yourusername/share-and-care.git
+    git clone [https://github.com/raghavmishra/share-and-care.git](https://github.com/raghavmishra8382/Share-Care.git)
 
 
 2. Navigate to the project directory:
