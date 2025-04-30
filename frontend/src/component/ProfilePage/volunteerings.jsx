@@ -1,0 +1,58 @@
+import { useEffect, useState } from "react";
+import "react-calendar/dist/Calendar.css";
+import DonationCard from "./donationCard";
+
+function VolunteeringByUser() {
+  const [data, setData] = useState(null);
+
+  async function fetchVolunteerData() {
+    try {
+      const response = await fetch(
+        "https://mern-fullstack-72ou.onrender.com/api/v1/users/volunteeringByUser",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const res = await response.json();
+      setData(res.data.volunteering);
+    } catch (error) {
+      console.error("Error fetching volunteer data:", error);
+    }
+  }
+
+  // Call the async function
+
+  useEffect(() => {
+    fetchVolunteerData();
+  }, []);
+
+  return (
+    <div className="flex flex-col flex-wrap justify-center items-center md:gap-12 gap-9 mt-12">
+      <div className="flex justify-center items-center p-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-center">
+          Volunteerings Offered By You
+        </h1>
+      </div>
+
+      <div>
+        <div className="flex flex-col gap-6 mb-12">
+          {data &&
+            data.map((obj, index) => (
+              <DonationCard key={index} index={index + 1} data={obj} />
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default VolunteeringByUser;
