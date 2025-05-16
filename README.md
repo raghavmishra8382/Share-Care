@@ -1,4 +1,5 @@
 # Share and Care
+🌐 **Live Project:** [https://mern-full-stack-iota.vercel.app](https://mern-full-stack-iota.vercel.app)
 
 Share and Care is an online platform designed to facilitate the sharing and donation of resources, particularly focusing on food and other essentials. It connects donors with volunteers and recipients, ensuring that excess resources are effectively utilized to help those in need.
 
